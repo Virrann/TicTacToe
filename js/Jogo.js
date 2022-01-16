@@ -25,9 +25,9 @@ vitorias['O'] = 0;
 
 document.addEventListener("click", (event) => {
 
-    // deteecta o clique do jogador e verifica se foi em alguma celula
+    // deteecta o clique do jogador e verifica se foi em alguma celula que ainda não foi clicada
 
-    if(event.target.matches(".celula")){
+    if(event.target.matches(".celula") && !(event.target.matches(".X") || event.target.matches(".O"))){
         play(event.target.id)
     }
 
