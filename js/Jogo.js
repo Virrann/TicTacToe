@@ -80,6 +80,10 @@ function empate() {
 }
 
 function encerrarJogo(vencedor = null){
+    const telafinal = document.getElementsByClassName("fimJogo");
+
+    telafinal.display = "block";
+
     if (vencedor){
         console.log("vencedor: " + vencedor);
     }
