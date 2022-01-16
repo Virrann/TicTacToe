@@ -150,3 +150,19 @@ button img{
     box-shadow: 0 10px #13252f;
     text-align: center;
 }
+
+#contadores{
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#contadores h2{
+    font-size: 15px;
+    text-align: center;
+}
+
+#contadores h2 span{
+    font-size: 30px;
+    margin-top: 10px;
+}

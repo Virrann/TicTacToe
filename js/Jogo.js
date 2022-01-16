@@ -21,6 +21,22 @@ const WIN = [
 
 var checaturno = true;
 
+/*=========================================================================================*/
+
+// Contador de vitórias/empates
+
+const vitx = document.getElementById("vitoriax");
+const vito = document.getElementById("vitoriao");
+const emp = document.getElementById("empate");
+
+var vitxc = document.createElement("span");
+var vitoc = document.createElement("span");
+var empc = document.createElement("span");
+
+vitx.appendChild(vitxc);
+vito.appendChild(vitoc);
+emp.appendChild(empc);
+
 var vitorias = [];
 vitorias['E'] = 0;
 vitorias['X'] = 0;
@@ -28,7 +44,9 @@ vitorias['O'] = 0;
 
 
 /*=========================================================================================*/
+
 // criando o mostrador de turnos
+
 const TelaTurno = document.getElementById("turnos");
 const vez = document.createElement("span");
 
@@ -36,6 +54,15 @@ TelaTurno.appendChild(vez)
 vez.innerHTML = "X";
 
 /*=========================================================================================*/
+
+function atualizaTurno(){
+
+    vez.innerHTML = checaturno ? JOGADOR_X : JOGADOR_O
+
+    empc.innerHTML = vitorias['E'].toString();
+    vitxc.innerHTML = vitorias['X'].toString();
+    vitoc.innerHTML = vitorias['O'].toString();
+};
 
 document.addEventListener("click", (event) => {
 
@@ -58,8 +85,7 @@ function play (id){
 
     checaVitoria(turno);
 
-    vez.innerHTML = checaturno ? JOGADOR_X : JOGADOR_O
-
+    atualizaTurno();
 
 }
 
