@@ -11,11 +11,21 @@
 </head>
 
 <body>
+
+    
     
     <div class="container">
-        <h1>Jogo da Velha</h1>
+        <header>
+            <h1><span class="X">X</span><span class="O">O</span></h1>
+            <div id="displayTurn">
+                <h1><span id="turnos"></span></h1>
+            </div>
+            <div id="reloadButon">
+                <button onclick="refresh()"><img src="img/Reload.png" alt="reiniciar partida"></button>
+            </div>
+        </header>
 
-        <section class="matriz">
+        <section class="matriz" id="jogo">
             <div class="celula" id="0"></div>
             <div class="celula" id="1"></div>
             <div class="celula" id="2"></div>
@@ -32,7 +42,10 @@
 
     <div class="fimJogo" id="telaEscura"></div>
 
-    <div class="fimJogo" id="Mensagem"></div>
+    <div class="fimJogo" id="Mensagem">
+        <h2 class="X">Mensagem de teste</h2>
+        
+    </div>
 
     <script src="js/html5shiv.js"></script>
     <script src="js/Jogo.js"></script>

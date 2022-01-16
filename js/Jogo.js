@@ -1,6 +1,8 @@
 const celulas = document.querySelectorAll(".celula");
 const JOGADOR_X = "X";
 const JOGADOR_O = "O";
+const x = document.getElementById('jogo').innerHTML;
+
 
 const WIN = [
 
@@ -16,6 +18,7 @@ const WIN = [
     [2,4,6]
 ];
 
+
 var checaturno = true;
 
 var vitorias = [];
@@ -23,11 +26,24 @@ vitorias['E'] = 0;
 vitorias['X'] = 0;
 vitorias['O'] = 0;
 
+
+/*=========================================================================================*/
+// criando o mostrador de turnos
+const TelaTurno = document.getElementById("turnos");
+const vez = document.createElement("span");
+
+TelaTurno.appendChild(vez)
+vez.innerHTML = "X";
+
+/*=========================================================================================*/
+
 document.addEventListener("click", (event) => {
 
     // deteecta o clique do jogador e verifica se foi em alguma celula que ainda não foi clicada
 
-    if(event.target.matches(".celula") && !(event.target.matches(".X") || event.target.matches(".O"))){
+    if(event.target.matches(".celula") && 
+     !(event.target.matches(".X") || 
+       event.target.matches(".O"))){
         play(event.target.id)
     }
 
@@ -41,6 +57,10 @@ function play (id){
     celula.classList.add(turno);
 
     checaVitoria(turno);
+
+    vez.innerHTML = checaturno ? JOGADOR_X : JOGADOR_O
+
+
 }
 
 function checaVitoria(turno){
@@ -86,18 +106,25 @@ function encerrarJogo(vencedor = null){
     const popup =document.getElementById("Mensagem");
     const mensagem = document.createElement("h2");
 
-    telafinal[0,1].style.display = 'block';
+    telafinal[1].style.display = 'flex';
+    telafinal[0].style.display = 'block';   
     popup.appendChild(mensagem);
 
     if (vencedor){
-        mensagem.innerHTML = "O player <span class =" + vencedor + " >" + vencedor + "</span> venceu!";
+        mensagem.innerHTML = "<span class =" + vencedor + " > O Jogador "  + vencedor + " venceu! </span>";
 
         vitorias[vencedor]++; 
-        console.log(vencedor + " = " + vitorias[vencedor]);
     }
     else{
         mensagem.innerHTML = "A partida empatou";
 
         vitorias['E']++;
     }
+}
+
+
+function refresh() {
+    console.log("botao");
+
+    document.getElementById('jogo').innerHTML = x;
 }
