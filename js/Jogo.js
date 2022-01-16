@@ -17,9 +17,11 @@ const WIN = [
 ];
 
 var checaturno = true;
-var empates = 0;
-var vitoriasX = 0;
-var vitoriasO = 0;
+
+var vitorias = [];
+vitorias['E'] = 0;
+vitorias['X'] = 0;
+vitorias['O'] = 0;
 
 document.addEventListener("click", (event) => {
 
@@ -81,13 +83,21 @@ function empate() {
 
 function encerrarJogo(vencedor = null){
     const telafinal = document.getElementsByClassName("fimJogo");
+    const popup =document.getElementById("Mensagem");
+    const mensagem = document.createElement("h2");
 
-    telafinal.display = "block";
+    telafinal[0,1].style.display = 'block';
+    popup.appendChild(mensagem);
 
     if (vencedor){
-        console.log("vencedor: " + vencedor);
+        mensagem.innerHTML = "O player <span class =" + vencedor + " >" + vencedor + "</span> venceu!";
+
+        vitorias[vencedor]++; 
+        console.log(vencedor + " = " + vitorias[vencedor]);
     }
     else{
-        console.log("empate");
+        mensagem.innerHTML = "A partida empatou";
+
+        vitorias['E']++;
     }
 }
