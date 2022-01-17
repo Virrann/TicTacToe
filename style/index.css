@@ -27,9 +27,7 @@ body{
 }
 
 #Mensagem{
-    width: 70%;
-    height: 70%;
-    border-radius: 10px;
+    width: 100%;
     background-color: #1a262d;
     position: absolute;
     top: 50%;
@@ -37,7 +35,7 @@ body{
     transform: translate(-50%, -50%); 
     align-items: center; 
     justify-content: center;
-
+    flex-direction: column;
 }
 
 
@@ -51,6 +49,7 @@ body{
     display: flex;
     align-items: center; 
     justify-content: center;
+    text-align: center;
 }
 
 .X{
@@ -61,6 +60,9 @@ body{
     color: #f0b239;
 }
 
+.E{
+    color: #a8bec9;
+}
 
 .container{
     position: absolute;
@@ -115,7 +117,7 @@ h1>.X, h1>.O{
     justify-content: right;
 }
 
-button{
+#resetGame{
     height: 45px;
     width: 45px;
     background-color: #a8bec9;
@@ -127,7 +129,7 @@ button{
     box-shadow: 0 3px #4e5b62;
 }
 
-button img{
+#resetGame img{
     width: 90%;
 }
 
@@ -155,14 +157,36 @@ button img{
     margin-top: 15px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    margin-top: 20px;
 }
 
 #contadores h2{
+    color: #192a32;
     font-size: 15px;
     text-align: center;
+    margin-top: 5px;
+}
+
+.contador{
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    border-radius: 15px;
 }
 
 #contadores h2 span{
     font-size: 30px;
-    margin-top: 10px;
+}
+
+#vit{
+    background-color: #32c4c0;
+}
+
+#emp{
+    background-color: #a8bec9;
+}
+
+#der{
+    background-color: #f0b239;
 }

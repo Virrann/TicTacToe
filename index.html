@@ -21,7 +21,7 @@
                 <h1><span id="turnos"></span></h1>
             </div>
             <div id="reloadButon">
-                <button onclick="refresh()"><img src="img/Reload.png" alt="reiniciar partida"></button>
+                <button id="resetGame" onclick="refresh()"><img src="img/Reload.png" alt="reiniciar partida"></button>
             </div>
         </header>
 
@@ -41,17 +41,17 @@
 
         <div id="contadores">
             <div class="contador" id="vit">
-                <h2>X <br><br><span id="vitoriax"></span></h2>
+                <h2>X <br><span id="vitoriax"></span></h2>
                 
             </div>
 
             <div class="contador" id="emp">
-                <h2>Empate <br><br><span id="empate"></span></h2>
+                <h2>Empate<br><span id="empate"></span></h2>
                 
             </div>
 
             <div class="contador" id="der">
-                <h2>O <br><br><span id="vitoriao"></span></h2>
+                <h2>O <br><span id="vitoriao"></span></h2>
                 
             </div>
 
@@ -61,8 +61,8 @@
     <div class="fimJogo" id="telaEscura"></div>
 
     <div class="fimJogo" id="Mensagem">
-        <h2 class="X">Mensagem de teste</h2>
-        
+        <div id="texto"></div>
+        <button onclick="refresh()">Próximo round?</button>
     </div>
 
     <script src="js/html5shiv.js"></script>
