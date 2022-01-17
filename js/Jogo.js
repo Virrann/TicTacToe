@@ -1,7 +1,7 @@
-const celulas = document.querySelectorAll(".celula");
 const JOGADOR_X = "X";
 const JOGADOR_O = "O";
-const x = document.getElementById('jogo').innerHTML;
+const start = document.getElementById('jogo').innerHTML;
+const telaEcerramento = document.getElementById('texto').innerHTML;
 
 
 const WIN = [
@@ -18,8 +18,9 @@ const WIN = [
     [2,4,6]
 ];
 
-
+var celulas = document.querySelectorAll(".celula");
 var checaturno = true;
+var vencedor = false;
 
 /*=========================================================================================*/
 
@@ -90,14 +91,16 @@ function play (id){
 }
 
 function checaVitoria(turno){
-    const vencedor = WIN.some((comb) => {
+
+    vencedor = WIN.some((comb) => {
         return comb.every((index) => {
             return celulas[index].classList.contains(turno);
         });
     });
+
     
     if(vencedor){
-        encerrarJogo(turno);
+        encerrarJogo(turno);        
     }
     else if(empate()){
         encerrarJogo();
@@ -150,11 +153,14 @@ function encerrarJogo(vencedor = null){
 
 
 function refresh() {
-    document.getElementById('jogo').innerHTML = x;
+    document.getElementById('jogo').innerHTML = start;
+    document.getElementById('texto').innerHTML = telaEcerramento;
 
     const telafinal = document.getElementsByClassName("fimJogo");
 
     telafinal[1].style.display = 'none';
     telafinal[0].style.display = 'none';
 
+    celulas = document.querySelectorAll(".celula");
+    vencedor = false;
 }

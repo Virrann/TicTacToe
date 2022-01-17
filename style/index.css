@@ -43,6 +43,15 @@ body{
     font-size: 60px;
 }
 
+#nextRound{
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #a8bec9;
+    border-radius: 5px;
+    border: none;
+    color: #192a32;
+}
+
 .X, .O{
     display: block;
     font-size: 100px;
