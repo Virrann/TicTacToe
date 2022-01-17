@@ -129,7 +129,7 @@ function empate() {
 
 function encerrarJogo(vencedor = null){
     const telafinal = document.getElementsByClassName("fimJogo");
-    const popup =document.getElementById("Mensagem");
+    const popup =document.getElementById("texto");
     const mensagem = document.createElement("h2");
 
     telafinal[1].style.display = 'flex';
@@ -142,7 +142,7 @@ function encerrarJogo(vencedor = null){
         vitorias[vencedor]++; 
     }
     else{
-        mensagem.innerHTML = "A partida empatou";
+        mensagem.innerHTML = "<span class = 'E'>A partida empatou</span>";
 
         vitorias['E']++;
     }
@@ -150,7 +150,11 @@ function encerrarJogo(vencedor = null){
 
 
 function refresh() {
-    console.log("botao");
-
     document.getElementById('jogo').innerHTML = x;
+
+    const telafinal = document.getElementsByClassName("fimJogo");
+
+    telafinal[1].style.display = 'none';
+    telafinal[0].style.display = 'none';
+
 }
